@@ -121,4 +121,55 @@
     <string name="accessibility_switch_to_camera" msgid="5951340774212969461">"Alternar para foto"</string>
     <string name="accessibility_switch_to_video" msgid="4991396355234561505">"Alternar para vídeo"</string>
     <string name="accessibility_switch_to_panorama" msgid="604756878371875836">"Alterar para panorama"</string>
+    <string name="pref_camera_focusmode_entry_fixed">Fixo</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Detectar face</string>
+    <string name="pref_camera_focusmode_entry_continuouspicture">Foto Contínua</string>
+    <string name="pref_camera_whitebalance_entry_cloudydaylight">Nublado-Luz do dia</string>
+    <string name="pref_camera_scenemode_entry_backlight">Luz de fundo</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Anoitecer/Amanhecer</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Tom de Outono</string>
+    <string name="pref_camera_scenemode_entry_text">Texto</string>
+    <string name="pref_camera_power_shutter_title">Tirar c/ botão Liga/Desl.</string>
+    <string name="pref_camera_scenemode_entry_portrait">Retrato</string>
+    <string name="pref_camera_scenemode_entry_landscape">Paisagem</string>
+    <string name="pref_camera_scenemode_entry_beach">Praia</string>
+    <string name="pref_camera_scenemode_entry_snow">Neve</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Fogos de Artifício</string>
+    <string name="pref_camera_scenemode_entry_sports">Esportes</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Luz de Vela</string>
+    <string name="pref_camera_autoexposure_title">Modo de exposição automática</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">Moldura média</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Centro ponderado</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">Medição pontual</string>
+    <string name="pref_camera_autoexposure_entry_matrix">Matriz</string>
+    <string name="pref_camera_redeyereduction_title">Reduzir olhos vermelhos</string>
+    <string name="pref_camera_redeyereduction_entry_enable">Ativar</string>
+    <string name="pref_camera_redeyereduction_entry_disable">Desativar</string>
+    <string name="pref_camera_antibanding_title">Anti-bandas</string>
+    <string name="pref_camera_antibanding_entry_0">Desligado</string>
+    <string name="pref_camera_coloreffect_title">Efeito de cor</string>
+    <string name="pref_camera_coloreffect_entry_none">Nenhum</string>
+    <string name="pref_camera_coloreffect_entry_sepia">Sépia</string>
+    <string name="pref_camera_coloreffect_entry_negative">Negativo</string>
+    <string name="pref_camera_coloreffect_entry_solarize">Solarização</string>
+    <string name="pref_camera_coloreffect_entry_posterize">Posterização</string>
+    <string name="pref_camera_coloreffect_entry_aqua">Aqua</string>
+    <string name="pref_camera_coloreffect_entry_emboss">Realçar</string>
+    <string name="pref_camera_coloreffect_entry_sketch">Rascunho</string>
+    <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+    <string name="pref_camera_coloreffect_entry_neon">Néon</string>
+    <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">Mosaico</string>
+    <string name="pref_camera_coloreffect_entry_redtint">Avermelhado</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">Azulado</string>
+    <string name="pref_camera_coloreffect_entry_greentint">Esverdeado</string>
+    <string name="pref_camera_scenemode_entry_asd">ASD</string>
+    <string name="pref_camera_scenemode_entry_night_portrait">Retrato Nortuno</string>
+    <string name="pref_camera_scenemode_entry_theatre">Teatro</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Foto Estável</string>
+    <string name="pref_camera_scenemode_entry_flowers">Flores</string>
+    <string name="pref_camera_scenemode_entry_ar">AR</string>
+    <string name="pref_camera_focus_title">Duração do toque para foco</string>
+    <string name="pref_camera_focus_summary">Selecionar duração para toque para foco</string>
+    <string name="pref_camera_focus_entry_infinit">infinito</string>
 </resources>

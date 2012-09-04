@@ -219,6 +219,9 @@ public class VideoCamera extends ActivityBase
     private boolean mRestoreFlash;  // This is used to check if we need to restore the flash
                                     // status when going back from gallery.
 
+    private int mVideoWidth;
+    private int mVideoHeight;
+
     // This Handler is used to post message back onto the main thread of the
     // application
     private class MainHandler extends Handler {
@@ -717,13 +720,14 @@ public class VideoCamera extends ActivityBase
     private void getDesiredPreviewSize() {
         mParameters = mCameraDevice.getParameters();
         if (mParameters.getSupportedVideoSizes() == null ||
-                (!getResources().getBoolean(R.bool.alwaysUsePreferredPreviewSize) && effectsActive())) {
+                (!getResources().getBoolean(R.bool.usePreferredPreviewSizeForEffects) && effectsActive())) {
             mDesiredPreviewWidth = mProfile.videoFrameWidth;
             mDesiredPreviewHeight = mProfile.videoFrameHeight;
         } else {  // Driver supports separates outputs for preview and video.
             List<Size> sizes = mParameters.getSupportedPreviewSizes();
             Size preferred = mParameters.getPreferredPreviewSizeForVideo();
-            if (preferred == null) {
+            if (getResources().getBoolean(R.bool.ignorePreferredPreviewSizeForVideo)
+                    || preferred == null) {
                 preferred = sizes.get(0);
             }
             int product = preferred.width * preferred.height;
@@ -1094,6 +1098,9 @@ public class VideoCamera extends ActivityBase
 
         Intent intent = getIntent();
         Bundle myExtras = intent.getExtras();
+
+        mVideoWidth = mProfile.videoFrameWidth;
+        mVideoHeight = mProfile.videoFrameHeight;
 
         long requestedSizeLimit = 0;
         closeVideoFileDescriptor();
@@ -1796,6 +1803,12 @@ public class VideoCamera extends ActivityBase
     private void setCameraParameters() {
         mParameters = mCameraDevice.getParameters();
 
+        // Reset rotation. It's only meant to be used for snapshots, and it causes problems with
+        // some camera drivers if it's left over from a snap or video snap.
+        if (getResources().getBoolean(R.bool.resetVideoRotationParameter)) {
+            mParameters.setRotation(0);
+        }
+
         // Set video mode
         CameraSettings.setVideoMode(mParameters, true);
 
@@ -2179,10 +2192,13 @@ public class VideoCamera extends ActivityBase
 
             readVideoPreferences();
             showTimeLapseUI(mCaptureTimeLapse);
+
             // We need to restart the preview if preview size is changed.
             Size size = mParameters.getPreviewSize();
             if (size.width != mDesiredPreviewWidth
-                    || size.height != mDesiredPreviewHeight) {
+                    || size.height != mDesiredPreviewHeight
+                    || mProfile.videoFrameWidth != mVideoWidth
+                    || mProfile.videoFrameHeight != mVideoHeight) {
                 if (!effectsActive()) {
                     stopPreview();
                 } else {

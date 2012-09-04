@@ -418,10 +418,9 @@ public class Util {
         // Use a very small tolerance because we want an exact match.
         final double ASPECT_TOLERANCE = 0.001;
         if (sizes == null) return null;
-
         Size optimalSize = null;
         double minDiff = Double.MAX_VALUE;
-
+        double minAspectRatioDiff = Double.MAX_VALUE;
         // Because of bugs of overlay and layout, we sometimes will try to
         // layout the viewfinder in the portrait orientation and thus get the
         // wrong size of preview surface. When we change the preview size, the
@@ -433,19 +432,20 @@ public class Util {
         int targetHeight = Math.min(point.x, point.y);
 
         // Try to find an size match aspect ratio and size
+
         for (Size size : sizes) {
             double ratio = (double) size.width / size.height;
             if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
             if (Math.abs(size.height - targetHeight) < minDiff) {
                 optimalSize = size;
                 minDiff = Math.abs(size.height - targetHeight);
-            }
-        }
+           }
+       }
+
 
         // Cannot find the one match the aspect ratio. This should not happen.
         // Ignore the requirement.
         if (optimalSize == null) {
-            Log.w(TAG, "No preview size match the aspect ratio");
             minDiff = Double.MAX_VALUE;
             for (Size size : sizes) {
                 if (Math.abs(size.height - targetHeight) < minDiff) {
